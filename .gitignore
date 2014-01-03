@@ -5,3 +5,4 @@ project/boot
 .DS_Store
 out
 project/plugins/project/
+Halleyfile
