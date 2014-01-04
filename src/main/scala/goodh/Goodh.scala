@@ -30,8 +30,6 @@ class Goodh(url : URL) {
 					 				}
 			imagePages.toList
 		} 
-		//table.ptd(0).tbody(0).tr.td.last
-		//aタグがあったら読み込みに行く
 		imagePages.toList.flatten
 	}
 }
