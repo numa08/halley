@@ -18,7 +18,7 @@ class Goodh(url : URL) {
 		pageCount
 	}
 	
-	def imagePages : List[URL] = {
+	def imagePages : List[GoodhImage] = {
 		val imagePages = for( i <- 0 to pageCount - 1) yield {
 			val targetUrl = new URL(url.toString() + s"?p=${i}")
 			val imagePages = Jsoup.parse(targetUrl, 1000).body
@@ -26,7 +26,7 @@ class Goodh(url : URL) {
 					 			  .map{elem => val url = elem.getElementsByTag("div").head
 					 							   		     .getElementsByTag("a").head
 					 							   			 .attr("href")
-					 					new URL(url)
+					 					new GoodhImage(new URL(url))
 					 				}
 			imagePages.toList
 		} 
