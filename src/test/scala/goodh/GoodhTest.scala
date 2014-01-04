@@ -47,4 +47,10 @@ class GoodhTest extends FunSuite {
 		val actual = new Goodh(new URL("http://g.e-hentai.org/g/661292/bf3623df52/")).imagePages
 		assert(expection == actual)
 	}
+
+	test("creta image list in collspaned page") {
+		val expection = 857
+		val actual = new Goodh(new URL("http://g.e-hentai.org/g/661440/d74c2d45b7/")).imagePages.size
+		assert(expection == actual)
+	}
 }
