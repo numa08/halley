@@ -31,7 +31,7 @@ object Halley {
                     case Some(file) => {
                       val code = Source.fromFile(file).mkString("import net.numa08.urls\n", "", "")
                       val urls = Eval[urls](code)
-                      // new Goodh(url).images
+                      // new Goodh(url).images.dowload(directory)
                       0
                     }
                     case _ => {

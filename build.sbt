@@ -11,6 +11,8 @@ scalaVersion := "2.10.3"
 libraryDependencies ++= Seq(
  "com.twitter" % "util-eval_2.10" % "6.10.0",
  "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
- "org.jsoup" % "jsoup" % "1.7.3"
+ "org.jsoup" % "jsoup" % "1.7.3",
+ "com.github.scala-incubator.io" %% "scala-io-core" % "0.4.2",
+ "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.2"
  )
  
