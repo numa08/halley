@@ -10,10 +10,12 @@ import scalax.file.Path
 class GoodhImage(val url:URL) {
 	
 	def download(dir:File) : Boolean = {
-		val imageUrl = Jsoup.parse(url, 1000)
+		val imageUrl = Jsoup.parse(url, 60 * 1000)
 							.getElementById("img")
 							.attr("src")
-		val imagePath = Path.fromString(dir.toString + "/" + imageUrl.split("=").last.replaceAll("/","_"))
+		val fileName = imageUrl.split("=").last.replaceAll("/", "_")
+		val imagePath = Path.fromString(dir.toString + "/" + fileName)
+		println(s"[INFO] Downloading ${fileName}")
 		imagePath.write{new URL(imageUrl).asInput.bytes}
 		true
 	}
