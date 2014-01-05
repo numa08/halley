@@ -3,6 +3,7 @@ package net.numa08
 import com.twitter.util.Eval
 import java.io.File
 import java.net.URL
+import net.numa08.goodh._
 import net.numa08.utils.FileWrapper._
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
@@ -30,8 +31,10 @@ object Halley {
     val result = halleyFile match {
                     case Some(file) => {
                       val code = Source.fromFile(file).mkString("import net.numa08.urls\n", "", "")
-                      val urls = Eval[urls](code)
-                      // new Goodh(url).images.dowload(directory)
+                      val config = Eval[urls](code)
+                      config.urls.foreach{u => val dir = u.toString.split("/").last
+                                        new Goodh(u).imagePages.foreach(_.download(new File(dir)))
+                                        }
                       0
                     }
                     case _ => {

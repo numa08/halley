@@ -13,7 +13,7 @@ class GoodhImage(val url:URL) {
 		val imageUrl = Jsoup.parse(url, 1000)
 							.getElementById("img")
 							.attr("src")
-		val imagePath = Path.fromString(dir.toString + "/" + imageUrl.split("=").last)
+		val imagePath = Path.fromString(dir.toString + "/" + imageUrl.split("=").last.replaceAll("/","_"))
 		imagePath.write{new URL(imageUrl).asInput.bytes}
 		true
 	}
