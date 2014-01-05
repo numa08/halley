@@ -2,7 +2,7 @@
   version: 0.1.0
   org: net.numa08
   name: halley
-  class: net.numa08.App
+  class: net.numa08.Halley
 [scala]
   version: 2.10.3
 [repositories]
