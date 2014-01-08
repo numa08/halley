@@ -33,7 +33,12 @@ object Halley {
                       val code = Source.fromFile(file).mkString("import net.numa08.urls\n", "", "")
                       val config = Eval[urls](code)
                       config.urls.foreach{u => val dir = u.toString.split("/").last
-                                        new Goodh(u).imagePages.foreach(_.download(new File(dir)))
+                                          val images = new Goodh(u).imagePages
+
+                                          images.foreach{image => 
+                                            image.download(new File(dir))
+                                            if(image != images.last) Thread.sleep(10 * 1000)
+                                          }
                                         }
                       0
                     }
